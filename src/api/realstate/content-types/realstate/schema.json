@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "realstates",
+  "info": {
+    "singularName": "realstate",
+    "pluralName": "realstates",
+    "displayName": "Realstate",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 150,
+      "minLength": 1
+    },
+    "launch": {
+      "type": "date",
+      "required": false,
+      "unique": false
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": false
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::country.country",
+      "inversedBy": "realstates"
+    }
+  }
+}
